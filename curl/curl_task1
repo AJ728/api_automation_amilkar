@@ -1,0 +1,796 @@
+amilkar@amilkar-VirtualBox:~$ export token=BQCyOMQ34qHpo54nsNjmF20wVmnFdock62Kvl2oMZhBjOMry4LjdkMsmpfYxVzThq-7PtLiz8IItMFunhquzKfnr-kvlWI68CZSsUMy6tnunHdVntzX8ANQoy-p7_er5ac7v9xKyzNho2lx19sw5lp5G9-zlioHm3cHy6I-oTaMtiv1YPV8Rs4iO-6XkItERsUO2BqXWL46iJLz_uuyfceRlIE3Rpb7enJNOGwoOsBMhf4ngQSBE7YfektwFz1s8w0krwW6s9f0Dow
+
+# CREATE PLAYLIST
+
+amilkar@amilkar-VirtualBox:~$ curl --request POST   --url https://api.spotify.com/v1/users/31ojcfuh2orbew7ir2zr52ofwh5q/playlists   --header "Authorization: Bearer $token"   --header "Content-Type: application/json"   --data '{
+    "name": "Playlist_test1",
+    "description": "Playlist description",
+    "public": false
+}' -v | jq
+Note: Unnecessary use of -X or --request, POST is already inferred.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 35.186.224.25...
+* Connected to api.spotify.com (35.186.224.25) port 443 (#0)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> POST /v1/users/31ojcfuh2orbew7ir2zr52ofwh5q/playlists HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQCyOMQ34qHpo54nsNjmF20wVmnFdock62Kvl2oMZhBjOMry4LjdkMsmpfYxVzThq-7PtLiz8IItMFunhquzKfnr-kvlWI68CZSsUMy6tnunHdVntzX8ANQoy-p7_er5ac7v9xKyzNho2lx19sw5lp5G9-zlioHm3cHy6I-oTaMtiv1YPV8Rs4iO-6XkItERsUO2BqXWL46iJLz_uuyfceRlIE3Rpb7enJNOGwoOsBMhf4ngQSBE7YfektwFz1s8w0krwW6s9f0Dow
+> Content-Type: application/json
+> Content-Length: 96
+> 
+} [96 bytes data]
+* upload completely sent off: 96 out of 96 bytes
+< HTTP/1.1 201 Created
+< content-type: application/json; charset=utf-8
+< cache-control: private, max-age=0
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 958
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 11:27:36 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+  9  1054    0     0  100    96      0    169 --:--:-- --:--:-- --:--:--   169{ [958 bytes data]
+100  1054  100   958  100    96   1689    169 --:--:-- --:--:-- --:--:--  1689
+* Connection #0 to host api.spotify.com left intact
+{
+  "collaborative": false,
+  "description": "Playlist description",
+  "external_urls": {
+    "spotify": "https://open.spotify.com/playlist/1rIZ1NVXX6HbvNu6VZsmSt"
+  },
+  "followers": {
+    "href": null,
+    "total": 0
+  },
+  "href": "https://api.spotify.com/v1/playlists/1rIZ1NVXX6HbvNu6VZsmSt",
+  "id": "1rIZ1NVXX6HbvNu6VZsmSt",
+  "images": [],
+  "primary_color": null,
+  "name": "Playlist_test1",
+  "type": "playlist",
+  "uri": "spotify:playlist:1rIZ1NVXX6HbvNu6VZsmSt",
+  "owner": {
+    "href": "https://api.spotify.com/v1/users/fe4ea870486c49419ae02b41102608f7",
+    "id": "fe4ea870486c49419ae02b41102608f7",
+    "type": "user",
+    "uri": "spotify:user:fe4ea870486c49419ae02b41102608f7",
+    "display_name": null,
+    "external_urls": {
+      "spotify": "https://open.spotify.com/user/fe4ea870486c49419ae02b41102608f7"
+    }
+  },
+  "public": false,
+  "snapshot_id": "OSw0YzdhODUxNGM1YWFjNmQyNzRhYjZmMDE2MmI2MDQyMTI3YzUyZTAw",
+  "tracks": {
+    "limit": 100,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "href": "https://api.spotify.com/v1/playlists/1rIZ1NVXX6HbvNu6VZsmSt/tracks",
+    "total": 0,
+    "items": []
+  }
+}
+amilkar@amilkar-VirtualBox:~$ nano data.json
+amilkar@amilkar-VirtualBox:~$ nano data.json
+
+# CREATE PLAYLIST (json file)
+
+amilkar@amilkar-VirtualBox:~$ curl --request POST   --url https://api.spotify.com/v1/users/31ojcfuh2orbew7ir2zr52ofwh5q/playlists   --header "Authorization: Bearer $token"   --header "Content-Type: application/json"   --data @data.json -v | jq
+Note: Unnecessary use of -X or --request, POST is already inferred.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0*   Trying 35.186.224.25...
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0* Connected to api.spotify.com (35.186.224.25) port 443 (#0)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> POST /v1/users/31ojcfuh2orbew7ir2zr52ofwh5q/playlists HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQCyOMQ34qHpo54nsNjmF20wVmnFdock62Kvl2oMZhBjOMry4LjdkMsmpfYxVzThq-7PtLiz8IItMFunhquzKfnr-kvlWI68CZSsUMy6tnunHdVntzX8ANQoy-p7_er5ac7v9xKyzNho2lx19sw5lp5G9-zlioHm3cHy6I-oTaMtiv1YPV8Rs4iO-6XkItERsUO2BqXWL46iJLz_uuyfceRlIE3Rpb7enJNOGwoOsBMhf4ngQSBE7YfektwFz1s8w0krwW6s9f0Dow
+> Content-Type: application/json
+> Content-Length: 112
+> 
+} [112 bytes data]
+* upload completely sent off: 112 out of 112 bytes
+< HTTP/1.1 201 Created
+< content-type: application/json; charset=utf-8
+< cache-control: private, max-age=0
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 982
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 11:46:32 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+{ [982 bytes data]
+100  1094  100   982  100   112    301     34  0:00:03  0:00:03 --:--:--   301
+* Connection #0 to host api.spotify.com left intact
+{
+  "collaborative": false,
+  "description": "This is electronic music in century XX",
+  "external_urls": {
+    "spotify": "https://open.spotify.com/playlist/7kw2Nrwp1rS3j87aUZB77l"
+  },
+  "followers": {
+    "href": null,
+    "total": 0
+  },
+  "href": "https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l",
+  "id": "7kw2Nrwp1rS3j87aUZB77l",
+  "images": [],
+  "primary_color": null,
+  "name": "Electronic Music",
+  "type": "playlist",
+  "uri": "spotify:playlist:7kw2Nrwp1rS3j87aUZB77l",
+  "owner": {
+    "href": "https://api.spotify.com/v1/users/fe4ea870486c49419ae02b41102608f7",
+    "id": "fe4ea870486c49419ae02b41102608f7",
+    "type": "user",
+    "uri": "spotify:user:fe4ea870486c49419ae02b41102608f7",
+    "display_name": null,
+    "external_urls": {
+      "spotify": "https://open.spotify.com/user/fe4ea870486c49419ae02b41102608f7"
+    }
+  },
+  "public": false,
+  "snapshot_id": "MTAsNWZlZWY3Y2Y3MmUyNDA4MTVhNjc3NzcxZWYyZWM3N2JkZWNjMTgxOQ==",
+  "tracks": {
+    "limit": 100,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "href": "https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks",
+    "total": 0,
+    "items": []
+  }
+}
+
+#GET A PLAYLIST
+
+amilkar@amilkar-VirtualBox:~$ curl GET --url https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l --header "Authorization: Bearer $token" -v | jq
+* Rebuilt URL to: GET/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Could not resolve host: GET
+* Closing connection 0
+curl: (6) Could not resolve host: GET
+*   Trying 35.186.224.25...
+* Connected to api.spotify.com (35.186.224.25) port 443 (#1)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> GET /v1/playlists/7kw2Nrwp1rS3j87aUZB77l HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQCyOMQ34qHpo54nsNjmF20wVmnFdock62Kvl2oMZhBjOMry4LjdkMsmpfYxVzThq-7PtLiz8IItMFunhquzKfnr-kvlWI68CZSsUMy6tnunHdVntzX8ANQoy-p7_er5ac7v9xKyzNho2lx19sw5lp5G9-zlioHm3cHy6I-oTaMtiv1YPV8Rs4iO-6XkItERsUO2BqXWL46iJLz_uuyfceRlIE3Rpb7enJNOGwoOsBMhf4ngQSBE7YfektwFz1s8w0krwW6s9f0Dow
+> 
+< HTTP/1.1 200 OK
+< content-type: application/json; charset=utf-8
+< cache-control: public, max-age=0
+< etag: "MC-IjIzYzhjYTFlZjY5NDNjM2QyNDAyNjU5MjM0YTJkYjBhIg=="
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 986
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 11:49:30 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+  0   986    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0{ [986 bytes data]
+100   986  100   986    0     0   2115      0 --:--:-- --:--:-- --:--:--  962k
+* Connection #1 to host api.spotify.com left intact
+{
+  "collaborative": false,
+  "description": "This is electronic music in century XX",
+  "external_urls": {
+    "spotify": "https://open.spotify.com/playlist/7kw2Nrwp1rS3j87aUZB77l"
+  },
+  "followers": {
+    "href": null,
+    "total": 0
+  },
+  "href": "https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l",
+  "id": "7kw2Nrwp1rS3j87aUZB77l",
+  "images": null,
+  "name": "Electronic Music",
+  "owner": {
+    "display_name": "jhon lopez",
+    "external_urls": {
+      "spotify": "https://open.spotify.com/user/31ojcfuh2orbew7ir2zr52ofwh5q"
+    },
+    "href": "https://api.spotify.com/v1/users/31ojcfuh2orbew7ir2zr52ofwh5q",
+    "id": "31ojcfuh2orbew7ir2zr52ofwh5q",
+    "type": "user",
+    "uri": "spotify:user:31ojcfuh2orbew7ir2zr52ofwh5q"
+  },
+  "primary_color": null,
+  "public": true,
+  "snapshot_id": "MSw5MzQyZjZjY2E5N2U4MzlhYjNhYTM0YmNlN2MwMWRhZTNlOWE0YTAx",
+  "tracks": {
+    "href": "https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks?offset=0&limit=0",
+    "items": [],
+    "limit": 0,
+    "next": null,
+    "offset": 0,
+    "previous": null,
+    "total": 0
+  },
+  "type": "playlist",
+  "uri": "spotify:playlist:7kw2Nrwp1rS3j87aUZB77l"
+}
+amilkar@amilkar-VirtualBox:~$ nano data.json
+amilkar@amilkar-VirtualBox:~$ nano data.json
+
+# UPDATE PLAYLIST DETAILS
+
+amilkar@amilkar-VirtualBox:~$ curl --request PUT --url https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l --header "Authorization: Bearer $token" --header "Content-Type: application/json" --data @data.json -v | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 35.186.224.25...
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Connected to api.spotify.com (35.186.224.25) port 443 (#0)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> PUT /v1/playlists/7kw2Nrwp1rS3j87aUZB77l HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQCyOMQ34qHpo54nsNjmF20wVmnFdock62Kvl2oMZhBjOMry4LjdkMsmpfYxVzThq-7PtLiz8IItMFunhquzKfnr-kvlWI68CZSsUMy6tnunHdVntzX8ANQoy-p7_er5ac7v9xKyzNho2lx19sw5lp5G9-zlioHm3cHy6I-oTaMtiv1YPV8Rs4iO-6XkItERsUO2BqXWL46iJLz_uuyfceRlIE3Rpb7enJNOGwoOsBMhf4ngQSBE7YfektwFz1s8w0krwW6s9f0Dow
+> Content-Type: application/json
+> Content-Length: 116
+> 
+} [116 bytes data]
+* upload completely sent off: 116 out of 116 bytes
+< HTTP/1.1 200 OK
+< cache-control: private, max-age=0
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 0
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< date: Mon, 04 Mar 2024 11:55:49 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+100   116    0     0  100   116      0    151 --:--:-- --:--:-- --:--:--   151
+* Connection #0 to host api.spotify.com left intact
+
+amilkar@amilkar-VirtualBox:~$ export token=BQBWSz40QppJ_25FDG4pr9IK-JFNhntMDT9ZEtcUm-QB65A9NIGOjcd7H_8i2SPNZ2QEfGopPX1_uG58Sk49SUct-R-qGdTIKA0V79yJhrw0xN6yJAYTzXcJQ_ghTQVLk7LdboFqfORBSFLfpjYHYkaYLc02VF2sDXXV7TRlmbz1JY2oG9qkS6cQxga4DgsSjIFIx9nx1H3wj1cYcTSedGHvksQ05u0hWwueRy_gS8L7gTj5hS6mq1UKRbqGlEhFsahXesFVEj7ABQ
+amilkar@amilkar-VirtualBox:~$ echo $token
+BQBWSz40QppJ_25FDG4pr9IK-JFNhntMDT9ZEtcUm-QB65A9NIGOjcd7H_8i2SPNZ2QEfGopPX1_uG58Sk49SUct-R-qGdTIKA0V79yJhrw0xN6yJAYTzXcJQ_ghTQVLk7LdboFqfORBSFLfpjYHYkaYLc02VF2sDXXV7TRlmbz1JY2oG9qkS6cQxga4DgsSjIFIx9nx1H3wj1cYcTSedGHvksQ05u0hWwueRy_gS8L7gTj5hS6mq1UKRbqGlEhFsahXesFVEj7ABQ
+
+# ADD ITEM TO PLAYLIST
+
+amilkar@amilkar-VirtualBox:~$ curl POST --url https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks --header "Authorization: Bearer $token" --header "Content-Type: application/json" --data @data_addItem.json -v | jq
+* Rebuilt URL to: POST/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Could not resolve host: POST
+* Closing connection 0
+curl: (6) Could not resolve host: POST
+*   Trying 35.186.224.25...
+* Connected to api.spotify.com (35.186.224.25) port 443 (#1)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> POST /v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQBWSz40QppJ_25FDG4pr9IK-JFNhntMDT9ZEtcUm-QB65A9NIGOjcd7H_8i2SPNZ2QEfGopPX1_uG58Sk49SUct-R-qGdTIKA0V79yJhrw0xN6yJAYTzXcJQ_ghTQVLk7LdboFqfORBSFLfpjYHYkaYLc02VF2sDXXV7TRlmbz1JY2oG9qkS6cQxga4DgsSjIFIx9nx1H3wj1cYcTSedGHvksQ05u0hWwueRy_gS8L7gTj5hS6mq1UKRbqGlEhFsahXesFVEj7ABQ
+> Content-Type: application/json
+> Content-Length: 84
+> 
+} [84 bytes data]
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 201 Created
+< content-type: application/json; charset=utf-8
+< cache-control: private, max-age=0
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 80
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 12:52:45 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+{ [80 bytes data]
+100   164  100    80  100    84    160    168 --:--:-- --:--:-- --:--:--   231
+* Connection #1 to host api.spotify.com left intact
+{
+  "snapshot_id": "OSwxMGZkNTc2MDg3NDhhNjM5MWZmNWQwMmY0MGJhYjA2YTBjZDVkZDY0"
+}
+amilkar@amilkar-VirtualBox:~$ nano data_addItem.json
+
+# DELETE ITEM FROM PLAYLIST
+
+amilkar@amilkar-VirtualBox:~$ curl --request DELETE --url https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks --header "Authorization: Bearer $token" --header "Content-Type: application/json" --data '{ "tracks": [{ "uri": "spotify:track:1301WleyT98MSxVHPZCA6M"}],"snapshot_id": "OSwxMGZkNTc2MDg3NDhhNjM5MWZmNWQwMmY0MGJhYjA2YTBjZDVkZDY0"}' -v | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 35.186.224.25...
+* Connected to api.spotify.com (35.186.224.25) port 443 (#0)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0> DELETE /v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQBWSz40QppJ_25FDG4pr9IK-JFNhntMDT9ZEtcUm-QB65A9NIGOjcd7H_8i2SPNZ2QEfGopPX1_uG58Sk49SUct-R-qGdTIKA0V79yJhrw0xN6yJAYTzXcJQ_ghTQVLk7LdboFqfORBSFLfpjYHYkaYLc02VF2sDXXV7TRlmbz1JY2oG9qkS6cQxga4DgsSjIFIx9nx1H3wj1cYcTSedGHvksQ05u0hWwueRy_gS8L7gTj5hS6mq1UKRbqGlEhFsahXesFVEj7ABQ
+> Content-Type: application/json
+> Content-Length: 137
+> 
+} [137 bytes data]
+* upload completely sent off: 137 out of 137 bytes
+< HTTP/1.1 200 OK
+< content-type: application/json; charset=utf-8
+< cache-control: private, max-age=0
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 84
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 12:54:45 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+{ [84 bytes data]
+100   221  100    84  100   137    193    315 --:--:-- --:--:-- --:--:--   314
+* Connection #0 to host api.spotify.com left intact
+{
+  "snapshot_id": "MTAsMGQ5YTFlMTc1OWM3YjVhNzhmYzE0NWVmMDllMWY3YWNmN2U5NTNkOA=="
+}
+
+
+# Negative Test Cases
+
+POST/ ADD_ITEM_TO_LIST_WITH_EXPIRED_TOKEN
+
+amilkar@amilkar-VirtualBox:~$ curl POST --url https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks --header "Authorization: Bearer BQA5fpaKzgZDgWMRCZ1G_QoYKrwdy7VmDduXdmX05UG9X-ZrUbGhWOvCy8Ng-Zlhvp_1EpMAqo3UVLEzLIhucaiw_dOeKpNy2XtZn-44ymvzSO7asFs" --header "Content-Type: application/json" --data @data_addItem.json -v | jq
+* Rebuilt URL to: POST/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0* Could not resolve host: POST
+* Closing connection 0
+curl: (6) Could not resolve host: POST
+*   Trying 35.186.224.25...
+* Connected to api.spotify.com (35.186.224.25) port 443 (#1)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> POST /v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQA5fpaKzgZDgWMRCZ1G_QoYKrwdy7VmDduXdmX05UG9X-ZrUbGhWOvCy8Ng-Zlhvp_1EpMAqo3UVLEzLIhucaiw_dOeKpNy2XtZn-44ymvzSO7asFs
+> Content-Type: application/json
+> Content-Length: 84
+> 
+} [84 bytes data]
+* upload completely sent off: 84 out of 84 bytes
+< HTTP/1.1 401 Unauthorized
+< www-authenticate: Bearer realm="spotify", error="invalid_token", error_description="The access token expired"
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< content-type: application/json
+< Content-Length: 81
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 13:03:16 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+{ [81 bytes data]
+100   165  100    81  100    84    199    206 --:--:-- --:--:-- --:--:--   206
+* Connection #1 to host api.spotify.com left intact
+{
+  "error": {
+    "status": 401,
+    "message": "The access token expired"
+  }
+}
+
+
+GET/ ERROR_RETREIVING_NOT_EXISTENT_PLAYLIST(INVALID PLAYLIST ID) [Possible Bug -> expected: 404 resource not found]
+
+curl GET --url https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77x --header "Authorization: Bearer $token" -v | jq
+* Rebuilt URL to: GET/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0* Could not resolve host: GET
+* Closing connection 0
+curl: (6) Could not resolve host: GET
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 35.186.224.25...
+* Connected to api.spotify.com (35.186.224.25) port 443 (#1)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> GET /v1/playlists/7kw2Nrwp1rS3j87aUZB77x HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQBWSz40QppJ_25FDG4pr9IK-JFNhntMDT9ZEtcUm-QB65A9NIGOjcd7H_8i2SPNZ2QEfGopPX1_uG58Sk49SUct-R-qGdTIKA0V79yJhrw0xN6yJAYTzXcJQ_ghTQVLk7LdboFqfORBSFLfpjYHYkaYLc02VF2sDXXV7TRlmbz1JY2oG9qkS6cQxga4DgsSjIFIx9nx1H3wj1cYcTSedGHvksQ05u0hWwueRy_gS8L7gTj5hS6mq1UKRbqGlEhFsahXesFVEj7ABQ
+> 
+< HTTP/1.1 502 Bad Gateway
+< content-type: application/json; charset=utf-8
+< cache-control: private, max-age=0
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 71
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 13:07:45 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+{ [71 bytes data]
+100    71  100    71    0     0    162      0 --:--:-- --:--:-- --:--:--   162
+* Connection #1 to host api.spotify.com left intact
+{
+  "error": {
+    "status": 502,
+    "message": "Error while loading resource"
+  }
+}
+
+
+# DELETE/ REMOVING_DELETED_ITEM_FROM_LIST (Possible ENH -> EXPECTED: 400 bad request when removing not existent item) 
+amilkar@amilkar-VirtualBox:~$ curl --request DELETE --url https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks --header "Authorization: Bearer $token" --header "Content-Type: application/json" --data '{ "tracks": [{ "uri": "spotify:track:1301WleyT98MSxVHPZCA6M"}],"snapshot_id": "OSwxMGZkNTc2MDg3NDhhNjM5MWZmNWQwMmY0MGJhYjA2YTBjZDVkZDY0"}' -v | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 35.186.224.25...
+* Connected to api.spotify.com (35.186.224.25) port 443 (#0)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> DELETE /v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQAipk8MCDnYTjmNAIO-B0vPvdXq-wdg4PdeGKnSD9QjBfUEVkS3bMRJy4wP9X2_T4evqh8SCIqcadBNohE1fWpnvXVKmzzgHaP1Z71OKGw3NWQJ44YbDDtrCFMsCHwQ_wqoi39PqdbqeAW0lWcqftH-pmbFXRPxgmBHyIrQEYAOHOqgHpYmbUzb5BKytAJMC175tR7qQWYBdD2KOa5NxgxyHrVkBWnGN6OxU73-pAI-8PKqzBavloqdoBNgaEGKMyhDKMgUvzgdKQ
+> Content-Type: application/json
+> Content-Length: 137
+> 
+} [137 bytes data]
+* upload completely sent off: 137 out of 137 bytes
+< HTTP/1.1 200 OK
+< content-type: application/json; charset=utf-8
+< cache-control: private, max-age=0
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 84
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 13:12:27 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+{ [84 bytes data]
+100   221  100    84  100   137    174    283 --:--:-- --:--:-- --:--:--   283
+* Connection #0 to host api.spotify.com left intact
+{
+  "snapshot_id": "MTAsMGQ5YTFlMTc1OWM3YjVhNzhmYzE0NWVmMDllMWY3YWNmN2U5NTNkOA=="
+}
+amilkar@amilkar-VirtualBox:~$ curl --request DELETE --url https://api.spotify.com/v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks --header "Authorization: Bearer $token" --header "Content-Type: application/json" --data '{ "tracks": [{ "uri": "spotify:track:1301WleyT98MSxVHPZCA6M"}],"snapshot_id": "OSwxMGZkNTc2MDg3NDhhNjM5MWZmNWQwMmY0MGJhYjA2YTBjZDVkZDY0"}' -v | jq
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 35.186.224.25...
+* Connected to api.spotify.com (35.186.224.25) port 443 (#0)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> DELETE /v1/playlists/7kw2Nrwp1rS3j87aUZB77l/tracks HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQAipk8MCDnYTjmNAIO-B0vPvdXq-wdg4PdeGKnSD9QjBfUEVkS3bMRJy4wP9X2_T4evqh8SCIqcadBNohE1fWpnvXVKmzzgHaP1Z71OKGw3NWQJ44YbDDtrCFMsCHwQ_wqoi39PqdbqeAW0lWcqftH-pmbFXRPxgmBHyIrQEYAOHOqgHpYmbUzb5BKytAJMC175tR7qQWYBdD2KOa5NxgxyHrVkBWnGN6OxU73-pAI-8PKqzBavloqdoBNgaEGKMyhDKMgUvzgdKQ
+> Content-Type: application/json
+> Content-Length: 137
+> 
+} [137 bytes data]
+* upload completely sent off: 137 out of 137 bytes
+< HTTP/1.1 200 OK
+< content-type: application/json; charset=utf-8
+< cache-control: private, max-age=0
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 84
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 13:12:39 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+{ [84 bytes data]
+100   221  100    84  100   137    167    273 --:--:-- --:--:-- --:--:--   274
+* Connection #0 to host api.spotify.com left intact
+{
+  "snapshot_id": "MTAsMGQ5YTFlMTc1OWM3YjVhNzhmYzE0NWVmMDllMWY3YWNmN2U5NTNkOA=="
+}
+
+
+
+POST/ CREATE_PLAYLIST_WITH_EMPTY_NAME_DESCRIPTION
+amilkar@amilkar-VirtualBox:~$ curl POST   --url https://api.spotify.com/v1/users/31ojcfuh2orbew7ir2zr52ofwh5q/playlists   --header "Authorization: Bearer $token"   --header "Content-Type: application/json"   --data @data.json -v | jq
+* Rebuilt URL to: POST/
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0* Could not resolve host: POST
+* Closing connection 0
+curl: (6) Could not resolve host: POST
+  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0*   Trying 35.186.224.25...
+  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0* Connected to api.spotify.com (35.186.224.25) port 443 (#1)
+* found 129 certificates in /etc/ssl/certs/ca-certificates.crt
+* found 521 certificates in /etc/ssl/certs
+* ALPN, offering http/1.1
+* SSL connection using TLS1.2 / ECDHE_RSA_AES_128_GCM_SHA256
+* 	 server certificate verification OK
+* 	 server certificate status verification SKIPPED
+* 	 common name: *.spotify.com (matched)
+* 	 server certificate expiration date OK
+* 	 server certificate activation date OK
+* 	 certificate public key: RSA
+* 	 certificate version: #3
+* 	 subject: C=SE,L=Stockholm,O=Spotify AB,CN=*.spotify.com
+* 	 start date: Mon, 05 Feb 2024 00:00:00 GMT
+* 	 expire date: Tue, 04 Feb 2025 23:59:59 GMT
+* 	 issuer: C=US,O=DigiCert Inc,CN=DigiCert Global G2 TLS RSA SHA256 2020 CA1
+* 	 compression: NULL
+* ALPN, server accepted to use http/1.1
+> POST /v1/users/31ojcfuh2orbew7ir2zr52ofwh5q/playlists HTTP/1.1
+> Host: api.spotify.com
+> User-Agent: curl/7.47.0
+> Accept: */*
+> Authorization: Bearer BQAipk8MCDnYTjmNAIO-B0vPvdXq-wdg4PdeGKnSD9QjBfUEVkS3bMRJy4wP9X2_T4evqh8SCIqcadBNohE1fWpnvXVKmzzgHaP1Z71OKGw3NWQJ44YbDDtrCFMsCHwQ_wqoi39PqdbqeAW0lWcqftH-pmbFXRPxgmBHyIrQEYAOHOqgHpYmbUzb5BKytAJMC175tR7qQWYBdD2KOa5NxgxyHrVkBWnGN6OxU73-pAI-8PKqzBavloqdoBNgaEGKMyhDKMgUvzgdKQ
+> Content-Type: application/json
+> Content-Length: 58
+> 
+} [58 bytes data]
+* upload completely sent off: 58 out of 58 bytes
+< HTTP/1.1 400 Bad Request
+< content-type: application/json; charset=utf-8
+< cache-control: private, max-age=0
+< x-robots-tag: noindex, nofollow
+< access-control-allow-origin: *
+< access-control-allow-headers: Accept, App-Platform, Authorization, Content-Type, Origin, Retry-After, Spotify-App-Version, X-Cloud-Trace-Context, client-token, content-access-token
+< access-control-allow-methods: GET, POST, OPTIONS, PUT, DELETE, PATCH
+< access-control-allow-credentials: true
+< access-control-max-age: 604800
+< Content-Length: 71
+< strict-transport-security: max-age=31536000
+< x-content-type-options: nosniff
+< vary: Accept-Encoding
+< date: Mon, 04 Mar 2024 13:25:22 GMT
+< server: envoy
+< Via: HTTP/2 edgeproxy, 1.1 google
+< Alt-Svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< 
+{ [71 bytes data]
+100   129  100    71  100    58     11      9  0:00:06  0:00:05  0:00:01    16
+* Connection #1 to host api.spotify.com left intact
+{
+  "error": {
+    "status": 400,
+    "message": "Missing required field: name"
+  }
+}
+
+
+
+
+
+
